@@ -1,18 +1,24 @@
 # omp-sanfran
 
-A prompt theme for [oh-my-posh](https://ohmyposh.dev/).
+Prompt themes for [oh-my-posh](https://ohmyposh.dev/).
 
 ![omp-sanfran](sample.png)
 
+## Prerequisites
+
+- Install [oh-my-posh](https://ohmyposh.dev/docs).
+- Install a [Nerdfont](https://www.nerdfonts.com/font-downloads) of your choice ([Meslo LG](https://github.com/ryanoasis/nerd-fonts/releases/download/v3.4.0/Meslo.zip) is pretty great!).
 
 ## Install
 
-1. Install [oh-my-posh](https://ohmyposh.dev/docs).
+```
+mkdir -p ~/.config/omp-sanfran
+git clone https://github.com/mlilley/omp-sanfran.git ~/.config/omp-sanfran
+```
 
-2. Copy to `~/.config/oh-my-posh.toml` (or your preferred config file location).
+Then update the oh-my-posh line in your `~/.zshrc` to specify the desired theme file:
 
-3. Tell oh-my-posh to use the config file (usually the last line in your shell's config):
-   ```
-   eval "$(oh-my-posh init zsh --config ~/.config/oh-my-posh.toml)"
-   ```
-
+```
+eval "$(oh-my-posh init zsh --config ~/.config/omp-sanfran/omp-sanfran-original.toml)"
+                                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+```

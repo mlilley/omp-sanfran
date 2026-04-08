@@ -30,7 +30,7 @@ powerline_symbol = ""
 leading_powerline_symbol = ""
 foreground = "p:fg_os"
 background = "p:bg_os"
-template = "{{.Icon}} "
+template = "{{.Icon}} {{ .HostName }} "
 
 # --- TIME ---
 [[blocks.segments]]
@@ -156,9 +156,10 @@ fg_lang_go = '#ffffff'
 fg_lang_node = '#ffffff'
 fg_lang_python = '#ffffff'
 
-bg_os = '#ac2635' #ac2635
-bg_time = '#e75300' #e75300
-bg_path = '#e39600' #e39600
-bg_git = '#48a65a' #48a65a
-bg_lang = '#228b92' #228b92
-bg_end = '#665c54' #665c54
+# rose → plum
+bg_os = '#85144b'
+bg_time = '#b5174e'
+bg_path = '#d4316a'
+bg_git = '#9b2d7a'
+bg_lang = '#6f2da8'
+bg_end = '#665c54'

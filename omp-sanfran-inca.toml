@@ -1,0 +1,165 @@
+console_title_template = '{{ .Shell }} in {{ .Folder }}'
+version = 3
+final_space = true
+
+# [secondary_prompt]
+# template = '<p:yellow,transparent></><,p:yellow> > </><p:yellow,transparent></> '
+# foreground = 'p:black'
+# background = 'transparent'
+
+# [transient_prompt]
+# template = '<p:yellow,transparent></><,p:yellow> {{ .Folder }} </><p:yellow,transparent></> '
+# foreground = 'p:black'
+# background = 'transparent'
+
+[upgrade]
+source = 'cdn'
+interval = '168h'
+auto = false
+notice = false
+
+[[blocks]]
+type = 'prompt'
+alignment = 'left'
+
+# --- OS ---
+[[blocks.segments]]
+type = "os"
+style = "accordion"
+powerline_symbol = ""
+leading_powerline_symbol = ""
+foreground = "p:fg_os"
+background = "p:bg_os"
+template = "{{.Icon}} {{ .HostName }} "
+
+# --- TIME ---
+[[blocks.segments]]
+type = "time"
+style = "accordion"
+powerline_symbol = ""
+foreground = "p:fg_time"
+background = "p:bg_time"
+template = "  {{ .CurrentDate | date \"15:04\" }} "
+
+# --- PATH ---
+[[blocks.segments]]
+type = "path"
+style = "accordion"
+powerline_symbol = ""
+foreground = "p:fg_path"
+background = "p:bg_path"
+template = "  {{ path .Path .Location }} "
+[blocks.segments.properties]
+style = 'full'
+
+#   # -----------
+#   # --- GIT ---
+#   # -----------
+#   [[blocks.segments]]
+#     type = 'git'
+#     style = 'powerline'
+#     powerline_symbol = ''
+#     foreground = 'p:git_fg'
+#     background = 'p:git_bg'
+#     template = """ \
+# {{ if .UpstreamURL }}{{ url .UpstreamIcon .UpstreamURL }} {{ end }}\
+# {{ .HEAD }}\
+# {{if .BranchStatus }} {{ .BranchStatus }}{{ end }}\
+# {{ if .Working.Changed }}  {{ .Working.String }}{{ end }}\
+# {{ if .Staging.Changed }}  {{ .Staging.String }}{{ end }} \
+# """
+#     foreground_templates = [
+#       '{{ if or (.Working.Changed) (.Staging.Changed) }}p:git_dirty_fg{{ end }}', 
+#       '{{ if and (gt .Ahead 0) (gt .Behind 0) }}p:git_aheadbehind_fg{{ end }}', 
+#       '{{ if gt .Ahead 0 }}p:git_ahead_fg{{ end }}'
+#     ]
+#     # background_templates = [
+#     #   '{{ if or (.Working.Changed) (.Staging.Changed) }}p:git_state_dirty_bg{{ end }}', 
+#     #   '{{ if and (gt .Ahead 0) (gt .Behind 0) }}p:git_state_clean_bg{{ end }}', 
+#     #   '{{ if gt .Ahead 0 }}p:git_state_ahead_bg{{ end }}', 
+#     #   '{{ if gt .Behind 0 }}p:git_state_behind_bg{{ end }}'
+#     # ]
+
+#     [blocks.segments.properties]
+#       branch_template = '{{ trunc 25 .Branch }}'
+#       fetch_status = true
+#       fetch_upstream_icon = true
+
+# --- GIT ---
+[[blocks.segments]]
+type = "git"
+style = "accordion"
+powerline_symbol = ""
+foreground = "p:fg_git"
+background = "p:bg_git"
+template = """ \
+{{ if .UpstreamURL }}{{ url .UpstreamIcon .UpstreamURL }} {{ end }}\
+{{ .HEAD }}\
+{{ if .BranchStatus }} {{ .BranchStatus }}{{ end }}\
+{{ if .Working.Changed }}  {{ .Working.String }}{{ end }}\
+{{ if .Staging.Changed }}  {{ .Staging.String }}{{ end }} \
+"""
+[blocks.segments.properties]
+# branch_icon = " "
+branch_icon = ""
+branch_template = '{{ trunc 25 .Branch }}'
+fetch_status = true
+fetch_upstream_icon = true
+
+# --- langs ---
+[[blocks.segments]]
+type = 'text'
+style = 'accordion'
+powerline_symbol = ''
+foreground = 'p:fg_lang'
+background = 'p:bg_lang'
+template = ""
+[[blocks.segments]]
+type = 'go'
+style = 'powerline'
+powerline_symbol = ''
+foreground = 'p:fg_lang'
+background = 'p:bg_lang'
+template = "<#000000></> {{ .Full }} "
+[[blocks.segments]]
+type = 'node'
+style = 'powerline'
+powerline_symbol = ''
+foreground = 'p:fg_lang'
+background = 'p:bg_lang'
+template = " {{ .Full }} "
+[[blocks.segments]]
+type = 'python'
+style = 'powerline'
+powerline_symbol = ''
+foreground = 'p:fg_lang'
+background = 'p:bg_lang'
+template = "<#ffffff></> {{ .Full }}</> "
+
+# --- end ---
+[[blocks.segments]]
+type = 'text'
+style = 'accordion'
+powerline_symbol = ''
+foreground = 'p:transparent'
+background = 'p:bg_end'
+
+[palette]
+fg_os = '#fbf1c7' #fbf1c7
+fg_time = '#fbf1c7' #fbf1c7
+fg_path = '#fbf1c7' #fbf1c7
+fg_git = '#fbf1c7' #fbf1c7
+fg_lang = '#fbf1c7' #fbf1c7
+fg_end = '#fbf1c7' #fbf1c7
+
+fg_lang_go = '#ffffff'
+fg_lang_node = '#ffffff'
+fg_lang_python = '#ffffff'
+
+# inca
+bg_os = '#5f0f40' #ac2635
+bg_time = '#9a031e' #e75300
+bg_path = '#fb8b24' #e39600
+bg_git = '#e36414' #48a65931
+bg_lang = '#0f4c5c' #228b92
+bg_end = '#665c54' #665c54
